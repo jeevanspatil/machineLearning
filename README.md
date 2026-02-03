@@ -30,7 +30,7 @@ Each measurement has three values: mean, standard error, and "worst" (mean of th
 ## Installation
 
 ### Prerequisites
-- Python 3.8 or higher
+- Python 3.9 or higher (Python 3.10+ recommended)
 - pip package manager
 
 ### Setup
