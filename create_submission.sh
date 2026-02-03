@@ -5,9 +5,9 @@
 echo "Creating submission package..."
 echo "================================"
 
-# Check if notebook exists
-if [ ! -f "cancer_analysis.ipynb" ]; then
-    echo "Error: cancer_analysis.ipynb not found!"
+# Check if base notebook exists
+if [ ! -f "hw1_programming_base_notebook.ipynb" ]; then
+    echo "Error: hw1_programming_base_notebook.ipynb not found!"
     exit 1
 fi
 
@@ -23,20 +23,26 @@ mkdir -p "$TEMP_DIR"
 
 # Copy required files
 echo "Copying files..."
-cp cancer_analysis.ipynb "$TEMP_DIR/"
+cp hw1_programming_base_notebook.ipynb "$TEMP_DIR/"
 cp wdbc.data "$TEMP_DIR/"
 cp wdbc.names "$TEMP_DIR/"
 cp requirements.txt "$TEMP_DIR/"
 cp README.md "$TEMP_DIR/"
 
+# Optional: Also include solution notebook for reference
+if [ -f "hw1_programming_solution.ipynb" ]; then
+    echo "Including solution notebook for reference..."
+    cp hw1_programming_solution.ipynb "$TEMP_DIR/"
+fi
+
 # Optional: Convert notebook to PDF if nbconvert is available
 if command -v jupyter &> /dev/null; then
     echo "Converting notebook to PDF (optional)..."
-    jupyter nbconvert --to pdf cancer_analysis.ipynb --output "$TEMP_DIR/cancer_analysis.pdf" 2>/dev/null || echo "PDF conversion skipped (optional)"
+    jupyter nbconvert --to pdf hw1_programming_base_notebook.ipynb --output "$TEMP_DIR/hw1_programming_base_notebook.pdf" 2>/dev/null || echo "PDF conversion skipped (optional)"
 fi
 
 # Create zip file
-ZIP_NAME="cancer_analysis_submission.zip"
+ZIP_NAME="hw1_programming_submission.zip"
 echo "Creating zip file: $ZIP_NAME"
 cd "$TEMP_DIR"
 zip -r "../$ZIP_NAME" * > /dev/null

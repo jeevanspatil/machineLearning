@@ -6,10 +6,12 @@ This repository contains a comprehensive analysis of the Wisconsin Diagnostic Br
 
 ## Contents
 
-- `cancer_analysis.ipynb` - Main Jupyter notebook with complete analysis and solutions
+- `hw1_programming_base_notebook.ipynb` - Base template notebook for students (assignment structure with TODOs)
+- `hw1_programming_solution.ipynb` - Complete solution notebook with all implementations
 - `wdbc.data` - Breast cancer dataset (569 samples, 30 features)
 - `wdbc.names` - Dataset documentation and feature descriptions
 - `requirements.txt` - Python dependencies
+- `create_submission.sh` - Script to create submission package
 
 ## Dataset Information
 
@@ -45,21 +47,28 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Running the Notebook
+### For Students - Working on the Assignment
 ```bash
-# Start Jupyter Notebook
-jupyter notebook cancer_analysis.ipynb
+# Start with the base notebook (contains assignment structure and TODOs)
+jupyter notebook hw1_programming_base_notebook.ipynb
+```
+
+### For Reference - Viewing the Complete Solution
+```bash
+# View the complete solution notebook
+jupyter notebook hw1_programming_solution.ipynb
 ```
 
 Or use JupyterLab:
 ```bash
-jupyter lab cancer_analysis.ipynb
+jupyter lab hw1_programming_base_notebook.ipynb
+jupyter lab hw1_programming_solution.ipynb
 ```
 
 ### Executing All Cells
-You can execute the entire notebook from the command line:
+You can execute the entire solution notebook from the command line:
 ```bash
-jupyter nbconvert --to notebook --execute cancer_analysis.ipynb --output cancer_analysis_executed.ipynb
+jupyter nbconvert --to notebook --execute hw1_programming_solution.ipynb --output hw1_programming_solution_executed.ipynb
 ```
 
 ## Assignment Questions Covered
@@ -117,14 +126,20 @@ Each section of the notebook includes:
 
 To create a submission package:
 
-1. Ensure all cells are executed with outputs
-2. Export to PDF (optional):
+1. Complete all TODOs in `hw1_programming_base_notebook.ipynb`
+2. Ensure all cells are executed with outputs
+3. Export to PDF (optional):
    ```bash
-   jupyter nbconvert --to pdf cancer_analysis.ipynb
+   jupyter nbconvert --to pdf hw1_programming_base_notebook.ipynb
    ```
-3. Create a zip file:
+4. Create a zip file using the provided script:
    ```bash
-   zip -r submission.zip cancer_analysis.ipynb wdbc.data wdbc.names cancer_analysis.pdf
+   bash create_submission.sh
+   ```
+   
+   Or manually:
+   ```bash
+   zip -r submission.zip hw1_programming_base_notebook.ipynb wdbc.data wdbc.names hw1_programming_base_notebook.pdf
    ```
 
 The submission package will be under 10 MB as required.
