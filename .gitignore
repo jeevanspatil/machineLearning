@@ -45,3 +45,7 @@ Thumbs.db
 # Temporary files
 *.tmp
 /tmp/
+
+# Submission packages (can be regenerated with create_submission.sh)
+*.zip
+*_submission/
